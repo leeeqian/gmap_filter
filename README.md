@@ -1,9 +1,10 @@
-# gmap_filter
+# GmapFilter
 Google map with filters and marker cluster
 requires jquery, makercluster
 
-#example:
+#Example:
 Google Map with google's earthquake data
+	http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
 
 ```javascript
 function eqfeed_callback(data) {
