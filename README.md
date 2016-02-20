@@ -20,6 +20,7 @@ function eqfeed_callback(data) {
 		};
 	});
 }
+```
 
 ![Alt Text](https://raw.githubusercontent.com/leeeqian/gmap_filter/master/example.png)
 
