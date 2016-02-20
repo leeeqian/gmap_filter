@@ -5,4 +5,4 @@ requires jquery, makercluster
 #example:
 Google Map with google's earthquake data
 
-![alt text](gmap_filter/example.png "example")
+![alt text](/gmap_filter/example.png "example")
