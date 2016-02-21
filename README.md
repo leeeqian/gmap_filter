@@ -1,10 +1,11 @@
 # GmapFilter
 Google map with filters and marker cluster
-requires jquery, makercluster
+Automatically add filters (currently checkboxes only) based on selected marker properties.
+
+Using: jquery, makercluster, google map js
 
 #Example:
 Google Map with google's earthquake data
-	http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
 
 ```javascript
 function eqfeed_callback(data) {
@@ -25,4 +26,4 @@ function eqfeed_callback(data) {
 
 ![Alt Text](https://raw.githubusercontent.com/leeeqian/gmap_filter/master/example.png)
 
-
+http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
