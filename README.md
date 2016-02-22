@@ -4,6 +4,8 @@ Automatically add filters (currently checkboxes only) based on selected marker p
 
 Using: jquery, makercluster, google map js
 
+NOTE: the filter handles properties with comma separated automatically
+
 #Example:
 Google Map with google's earthquake data
 
