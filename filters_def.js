@@ -62,3 +62,51 @@ GmapEnumFilter.prototype.checkSatisfied = function(marker){
 	}
 	return true;
 }
+
+function GmapRangeFilter(filter){
+	this.tag = filter.tag;
+	this.upper = this.max = filter.max;
+	this.lower = filter.min;
+};
+
+GmapRangeFilter.prototype.makeMarkerOption = function(value){
+	return value;
+};
+
+GmapRangeFilter.prototype.buildFilter = function(callFunc){
+	$('body').append('<div id="' + this.tag + '" class="tags">' +
+		'<div>Filter on ' + this.tag + ': </div>'+
+		'<div id="filter-range"></div>' +
+		'<label for="value">Selected range:</label>' +
+		'<input type="text" id="value" readonly style="border:0; color:#f6931f; font-weight:bold;">' +
+		'</div>');
+	$('#' + this.tag).append('<a href="#" class="toggle" style="float:right;">hide/expand</a>');
+	$('#' + this.tag + ' .toggle').on('click', function(e){
+		$('#' + this.tag + ' .filter-list').toggle('slow');
+	});
+	$('#' + this.tag + ' #filter-range').slider({
+		range: true,
+		min: this.min,
+		max: this.max,
+		step: 0.1,
+		values: [ this.lower, this.upper ],
+		slide: function( event, ui ) {
+			$( "#value" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+			callFunc();
+		}
+	});
+};
+
+GmapRangeFilter.prototype.updateSelected = function(){
+	this.lower = $('#' + this.tag + ' #filter-range').slider('values', 0);
+	this.upper = $('#' + this.tag + ' #filter-range').slider('values', 1);
+};
+
+GmapRangeFilter.prototype.checkSatisfied = function(marker){
+	if(!(marker[this.tag] && $.isNumeric(marker[this.tag]) && 
+		marker[this.tag] >= this.lower &&
+		marker[this.tag] <= this.upper)){
+		return false;
+	}
+	return true;
+}

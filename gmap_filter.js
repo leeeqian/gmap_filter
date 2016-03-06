@@ -12,7 +12,18 @@ var GmapFilter = function(map, data, filters, options, markerFn){
 	var clusterStyle = { height: 53, width: 53, url: setting.clusterIconUrl };
 	var cluster = new MarkerClusterer(map, false, { styles: [clusterStyle,
 		clusterStyle, clusterStyle, clusterStyle, clusterStyle] });
-	$.each(filters, function(i, filter){ filtersOb[i] = new GmapEnumFilter(filter); });
+	$.each(filters, function(i, filter){
+		switch(filter.type){
+			case "enum":
+				filtersOb[i] = new GmapEnumFilter(filter);
+				break;
+			case "range":
+				filtersOb[i] = new GmapRangeFilter(filter);
+				break;
+			default:
+				alert("Un-recognized filter type: " + filter.type);
+		}		
+	});
 
 	var buildMarker = function(v, markerFn){
 		var markerOb = markerFn(v);		
