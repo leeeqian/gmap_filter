@@ -91,8 +91,10 @@ GmapRangeFilter.prototype.buildFilter = function(callFunc){
 		max: this.max,
 		step: 0.1,
 		values: [ this.lower, this.upper ],
-		slide: function( event, ui ) {
-			$( "#value" ).val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+		slide: function(event, ui){
+			$("#value").val( ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+		},
+		change: function(event, ui){
 			callFunc();
 		}
 	});
