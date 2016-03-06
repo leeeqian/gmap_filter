@@ -29,7 +29,7 @@ GmapEnumFilter.prototype.buildFilter = function(callFunc){
 		'</div>');
 	$('#' + this.tag).append('<a href="#" class="toggle" style="float:right;">hide/expand</a>');
 	$('#' + this.tag + ' .toggle').on('click', function(e){
-		$('#' + this.tag + ' .filter-list').toggle('slow');
+		$('#' + filterTag + ' .filter-list').toggle('slow');
 	});
 	$.each(this.filterList, function(i, tagValue){
 		$('#' + filterTag + ' .filter-list').append(
@@ -74,6 +74,7 @@ GmapRangeFilter.prototype.makeMarkerOption = function(value){
 };
 
 GmapRangeFilter.prototype.buildFilter = function(callFunc){
+	var filterTag = this.tag;
 	$('body').append('<div id="' + this.tag + '" class="tags">' +
 		'<div>Filter on ' + this.tag + ': </div>'+
 		'<div id="filter-range"></div>' +
@@ -82,7 +83,7 @@ GmapRangeFilter.prototype.buildFilter = function(callFunc){
 		'</div>');
 	$('#' + this.tag).append('<a href="#" class="toggle" style="float:right;">hide/expand</a>');
 	$('#' + this.tag + ' .toggle').on('click', function(e){
-		$('#' + this.tag + ' .filter-list').toggle('slow');
+		$('#' + filterTag + ' #filter-range').toggle('slow');
 	});
 	$('#' + this.tag + ' #filter-range').slider({
 		range: true,
