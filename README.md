@@ -9,6 +9,10 @@ NOTE: the filter handles properties with comma separated automatically
 #Example:
 Google Map with google's earthquake data
 
+#Play Ground
+https://jsfiddle.net/leeeqian/4abtm50d/5/
+
+
 ```javascript
 function eqfeed_callback(data) {
   var filters = ['net', 'magType', 'types'];
