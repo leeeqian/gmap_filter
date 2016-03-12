@@ -10,7 +10,7 @@ NOTE: the filter handles properties with comma separated automatically
 Google Map with google's earthquake data
 
 #Play Ground
-https://jsfiddle.net/leeeqian/4abtm50d/5/
+https://jsfiddle.net/leeeqian/4abtm50d/8/
 
 
 ```javascript
